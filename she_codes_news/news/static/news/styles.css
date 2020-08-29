@@ -10,6 +10,11 @@
     object-fit: cover;
 }
 
+#form {
+    color: blue;
+    border: 1px solid red;
+}
+
 #latest-stories {
     display: grid;
     grid-template-columns: 2fr 1fr;

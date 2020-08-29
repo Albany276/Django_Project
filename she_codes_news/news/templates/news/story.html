@@ -1,20 +1,24 @@
 {% extends "base.html" %} 
 {% load static %} 
  
-{% block stylesheets %} 
+<!-- {% block stylesheets %} 
 <link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}"> 
-{% endblock %} 
+{% endblock %}  -->
+
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+{% block stylesheets %}{% endblock %}
  
-{% block content %} 
+<!-- {% block content %}  -->
 
 
 <div id="story-wrapper">
     <h2>{{ story.title }}</h2>
     <h4>{{ story.author }}</h4>
     <div id="story-content">
-        <img src="{% static '/news/images/placeholder-5.jpg' %}">
+        <!-- Changed to the user image url -->
+        <img src= {{ story.image_url}}> 
         {{ story.content|linebreaks }}
     </div>
 </div>
 
-{% endblock %} 
+<!-- {% endblock %}  -->
