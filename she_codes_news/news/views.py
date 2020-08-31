@@ -1,5 +1,5 @@
 from django.views import generic
-from .models import NewsStory
+from .models import NewsStory #you import classes from models.py, classes are tables in the database
 from django.urls import reverse_lazy
 from .forms import StoryForm 
 

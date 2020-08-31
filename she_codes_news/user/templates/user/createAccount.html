@@ -4,9 +4,14 @@
 <h2>Create Account</h2>
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form.as_p }} 
     <button type="submit">Create Account</button>
 </form>
+
+<!-- Added this here to provide the option to sign in if the user already has an account -->
+<!-- <p>Already have an account?</p>
+<a href="#"> Sign In </a>  -->
+<!-- Need to add proper link on href, for the time being it is a placeholder -->
 
 {% endblock %}
 

@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'news.apps.NewsConfig',
     'user.apps.UserConfig',
+    # 'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+#added crispy forms above which makes styling forms easier
 
 AUTH_USER_MODEL = 'user.CustomUser'
 
@@ -123,7 +125,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
-LOGIN_REDIRECT_URL = 'news:index'
-LOGOUT_REDIRECT_URL = 'news:index'
+LOGIN_REDIRECT_URL = 'news:index' 
+#this means that after successful login you will be redirected to news/index
+# LOGOUT_REDIRECT_URL = 'news:index'
