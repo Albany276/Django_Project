@@ -8,6 +8,7 @@
 {% block content %}    
 
     <a href="{% url 'news:newStory' %}">Write New Story</a> 
+
     <h2>Latest News</h2>
     
 
@@ -19,6 +20,7 @@
         {% else %}
             <p>No stories are available.</p>
         {% endif %}
+        
     </div>
 
     <div id="all-stories">
@@ -30,5 +32,20 @@
             <p>No stories are available.</p>
         {% endif %}
     </div>
+
+    {# Trying to sort out by author #}
+
+
+    <div id="latest-stories">  
+        {% if user_stories %}
+            {% for story in user_stories %}
+                {% include "./storyCard.html" with story=story position=forloop.counter %}
+            {% endfor %}
+        {% else %}
+            <p>No stories are available for this user</p>
+        {% endif %}
+        
+    </div>
+
 
     {% endblock %}

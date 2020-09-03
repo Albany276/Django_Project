@@ -17,6 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from user import views as user_views
+# We are including the below to serve static images in development
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('', include('news.urls')),
@@ -24,5 +28,10 @@ urlpatterns = [
     path('user/', include('user.urls')),
     path('user/', include ('django.contrib.auth.urls')),
     path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(template_name='registration/logout.html'), name='logout')
+    path('logout/', auth_views.LogoutView.as_view(template_name='registration/logout.html'), name='logout'),
+    # path('sort/<int:pk>', user_views.UserDetailView.as_view(), name='sort')
 ]
+
+#Adding the below to serve static images in development - this allows media root and media url to work on the profile page
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

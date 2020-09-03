@@ -7,6 +7,7 @@ from .forms import (
 )
 
 from .models import CustomUser
+from .models import Profile
 
 class CustomUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm
@@ -15,5 +16,5 @@ class CustomUserAdmin(UserAdmin):
     list_display = ['email', 'username']
 
 admin.site.register(CustomUser, CustomUserAdmin)
-
+admin.site.register(Profile)
 # Register your models here.

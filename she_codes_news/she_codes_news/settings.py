@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'news.apps.NewsConfig',
     'user.apps.UserConfig',
-    # 'crispy_forms',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -124,11 +124,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+#media root above, is specifiying a directory called media, within the base project directory, we will save our images there
+MEDIA_URL = '/media/'
+#this is how we are going to acccess the media in the webpages
 
-# CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 LOGIN_REDIRECT_URL = 'news:index' 
 #this means that after successful login you will be redirected to news/index
+LOGIN_URL = 'login'
+#by default django will redirect to accounts/login, we are changing that to just go to login because that is the path we gave to login
 # LOGOUT_REDIRECT_URL = 'news:index'

@@ -17,6 +17,8 @@ class IndexView(generic.ListView):
         context['latest_stories'] = NewsStory.objects.order_by('-pub_date').all()[:4]
         context['all_stories'] = NewsStory.objects.order_by('-pub_date')
         #ordering by date
+        context['user_stories'] = NewsStory.objects.order_by('author')
+        #ordering by author, author with pk=1 will show first
         return context
 
 class StoryView(generic.DetailView):
@@ -34,4 +36,7 @@ class AddStoryView(generic.CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
         
-
+# class SortStoryView(generic.DetailView):
+#     model = NewsStory
+#     template_name = 'news/sort.html'
+#     context_object_name = 'sort'
