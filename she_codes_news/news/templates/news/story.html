@@ -1,9 +1,9 @@
 {% extends "base.html" %} 
 {% load static %} 
  
-
-<link rel="stylesheet" type="text/css" href="{% static 'styles2.css' %}">
-{% block stylesheets %}{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+{% endblock %}
  
 {% block content %} 
 
@@ -12,7 +12,6 @@
     <h2>{{ story.title }}</h2>
     <h4>{{ story.author }}</h4>
     <div id="story-content">
-        <!-- Changed to the user image url -->
         <img src= {{ story.image_url }}> 
         {{ story.content|linebreaks }}
     </div>
