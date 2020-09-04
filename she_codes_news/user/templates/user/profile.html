@@ -1,15 +1,26 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
+
+
+
 {% block content %}
+
     <div class="content-section">
-        <div class="media">
-            <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
-            <div class="media-body">
+        <div>
+            <img class="account-img" src="{{ user.image.url }}">
+            <div>
                 <h2 class="account-heading">{{ user.username }}</h2>
-                <p class="text-secondary">{{ user.email }}</p>
+                <p>Email: {{ user.email }}</p>
             </div>
         </div>
         <!-- FORM HERE -->
+        
+        <h4 style = "font-family: 'Permanent Marker', cursive;"> <br> <br> Update your deets below: </h4>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ u_form.as_p }} 
+            <button type="submit">Update</button>
+        </form>
     </div>
 {% endblock %}
 

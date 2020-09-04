@@ -2,6 +2,7 @@ from django.views import generic
 from .models import NewsStory #you import classes from models.py, classes are tables in the database
 from django.urls import reverse_lazy
 from .forms import StoryForm 
+#from django.contrib.auth.decorators import login_required
 
 
 
@@ -26,7 +27,7 @@ class StoryView(generic.DetailView):
     template_name = 'news/story.html'
     context_object_name = 'story'
 
-
+#@login_required
 class AddStoryView(generic.CreateView):
     form_class = StoryForm
     context_object_name = 'storyForm'

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %} 
 
-<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles2.css' %}">
 {% block stylesheets %}{% endblock %}
 
 {% block content %} 
@@ -10,7 +10,7 @@
 
     {% csrf_token %} 
     {{ form.as_p }} 
-    <input type="submit" value="submit"> 
+    <input type="submit" value="submit" style="color: red;"> 
 </form> 
     
 {% endblock %}

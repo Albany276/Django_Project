@@ -2,7 +2,7 @@
 
 {% block content %}
 <h2>Create Account</h2>
-<form method="post">
+<form method="post" enctype="multipart/form-data"> {# the enctype is needed so we can save images#}
     {% csrf_token %}
     {{ form.as_p }} 
     <button type="submit">Create Account</button>
